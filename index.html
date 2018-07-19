@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>VueJS Blog App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container" id="app-9"><br>
+      <div class="row">
+        <div class="col s12 m8">
+          <div class="col s12 m6" v-for="(blog, index) in blogs">
+            <div class="card blue-grey darken-3 z-depth-4">
+              <div class="card-content white-text">
+                <span class="card-title">{{ blog.title }}</span>
+                <p>{{ blog.body }}</p>
+              </div>
+              <div class="card-action">
+                <a href="#" v-on:click="editPost(index)">Edit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="col s12">
+            <form class="" action="" method="" v-on:submit.prevent="onSubmit">
+              <div class="input-field">
+                <i class="material-icons prefix">title</i>
+                <label for="title">Title</label>
+                <input type="text" class="validate" id="title" name="" value="" autocomplete="off" v-model="title">
+              </div>
+
+              <div class="input-field">
+                <i class="material-icons prefix">attachment</i>
+                <label for="body">Body</label>
+                <textarea class="materialize-textarea" name="" rows="" cols="" autocomplete="off" v-model="body"></textarea>
+              </div>
+
+              <button class="btn waves-effect waves-light blue-grey darken-2 z-depth-4" type="submit" name="action" v-on:click="addPost" v-if="editClick">Submit
+                <i class="material-icons right">send</i>
+              </button>
+              <button class="btn waves-effect waves-light blue-grey darken-2 z-depth-4" type="submit" name="action" v-on:click="updatePost" v-if="update">Update
+                <i class="material-icons right">create</i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!--END of CONTAINER-->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
